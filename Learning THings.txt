@@ -1,0 +1,14 @@
+1. Install the NodeJs
+2. Install the MongoDB
+    - MongoDB Compass only for locally save data
+    - MongoDB Compass + MongoDB Atlas(Cloud Server or Computer) Setup
+        ↪ Link : https://www.youtube.com/watch?v=TtjqEe-ktHY
+3.NodeJs Commands:
+       ↪ nvm use node ; (For the Mac or Linux) to Install it you required : https://github.com/coreybutler/nvm-windows/releases
+       ↪ ls --> list the Folder and Files in the Main Directory
+       ↪ cd folder_name  --> TO move into the Folder you want to Work
+       ↪   cd expense-tracker
+            npm install
+            npm run dev
+       ↪ 
+       ↪ 
