@@ -12,3 +12,14 @@
             npm run dev
        ↪ 
        ↪ 
+       ↪ 
+       ↪ 
+       ↪ 
+4. Tools and Technology Using :
+        ↪ JavaScript
+        ↪ HTML
+        ↪ CSS
+        ↪ ReactJs
+        ↪ NodeJs
+        ↪ Tailwind CSS v4
+        ↪
