@@ -1,0 +1,54 @@
+1. Tools and Technology Using :
+        ↪ JavaScript
+        ↪ HTML
+        ↪ CSS
+        ↪ ReactJs
+        ↪ NodeJs
+        ↪ Tailwind CSS v4
+2. Packages
+        ↪ Express
+        ↪ jsonwebtoken
+        ↪ mongoose
+        ↪ dotenv
+        ↪ cors
+        ↪ bcryptjs
+        ↪ multer
+        ↪ xlsx
+        ↪ nodemon
+
+3.NodeJs Commands:
+        ↪ node filename.js
+            ➡ Runs a JavaScript file using Node.js
+        ↪ node
+            ➡ Opens the Node.js REPL (interactive shell)
+        ↪ node -v or node --version
+            ➡ Shows the installed version of Node.js
+        ↪ npm init
+            ➡ Initializes a new Node.js project and creates a package.json file
+        ↪ npm install <package_name>
+            ➡ Installs a Node.js package
+        ↪ npm install
+            ➡ Installs all dependencies from package.json
+        ↪ npm uninstall <package_name>
+            ➡ Removes a Node.js package
+        ↪ npm update
+            ➡ Updates all the dependencies
+        ↪ npm list
+            ➡ Lists installed packages
+        ↪ npm list -g --depth=0
+            ➡ Lists globally installed packages
+        ↪ npm start
+            ➡ Runs the start script defined in package.json
+        ↪ npm run <script_name>
+            ➡ Runs a custom script defined in package.json
+        ↪ npx <package>
+            ➡ Runs a package without installing it globally
+        ↪ nodemon filename.js
+            ➡ Runs a file and automatically restarts it when changes are made
+        ↪ npm i
+            ➡ Shorthand for npm install
+        ↪ npm i -D <package>
+            ➡ Installs a dev dependency (only for development)
+        ↪ npm cache clean --force
+            ➡ Clears the npm cache
+
