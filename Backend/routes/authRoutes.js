@@ -18,14 +18,11 @@ router.post("/login", loginUser); // Send data to the Server
 router.get("/getUser", protect, getUserInfo); // Retrieve  data from the Server
 
 router.post("/upload-image", upload.single("image"), (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({ message: "No file Uploaded" });
+  if (!req.file || !req.file.path) {
+    return res.status(400).json({ message: "Image upload failed" });
   }
-  const imageURL = `${req.protocol}://${req.get("host")}/uploads/${
-    req.file.filename
-  }`;
 
-  res.status(200).json({ imageURL });
+  res.status(200).json({ imageURL: req.file.path }); // Cloudinary URL
 });
 
 module.exports = router;

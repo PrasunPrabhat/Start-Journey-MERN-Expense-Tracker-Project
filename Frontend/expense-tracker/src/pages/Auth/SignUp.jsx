@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import AuthLayout from "../../components/Layouts/AuthLayout";
 import { useNavigate } from "react-router-dom";
 import Input from "../../components/Inputs/Input";
 import { Link } from "react-router";
 import validateEmail from "../../utils/helper";
 import ProfilePhotoSelector from "../../components/Inputs/ProfilePhotoSelector";
+import axiosInstance from "../../utils/axiosInstance";
+import { API_PATHS } from "../../utils/apiPaths";
+import { UserContext } from "../../context/UserContext";
+import uploadImage from "../../utils/uploadImage";
 
 const SignUp = () => {
   const [profilePic, setProfilePic] = useState(null);
@@ -14,33 +18,60 @@ const SignUp = () => {
 
   const [error, setError] = useState(null);
 
+  const { updateUser } = useContext(UserContext);
   const navigate = useNavigate();
   // Handle Sign Up Form Submit
   const handleSignUp = async (e) => {
-      e.preventDefault();
+    e.preventDefault();
 
-      let profileImageUrl = "";
-      if(!fullName) {
-        setError("Please Enter Your name");
-        return;
+    let profileImageUrl = "";
+    if (!fullName) {
+      setError("Please Enter Your name");
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      setError("Please Enter a Valid Email Address");
+      return;
+    }
+
+    if (!password) {
+      setError("Please Enter the Password");
+      return;
+    }
+
+    setError("");
+
+    // SignUP APICall
+    try {
+
+      // Upload Image if Present
+      if(profilePic) {
+        const imgUploadRes = await uploadImage(profilePic);
+        profileImageUrl = imgUploadRes.imageURL || "";
       }
 
-      if(!validateEmail(email)){
-        setError("Please Enter a Valid Email Address")
-        return;
+      const response = await axiosInstance.post(API_PATHS.AUTH.REGISTER, {
+        fullName,
+        email,
+        password,
+        profileImageUrl,
+      });
+
+      const { token, user } = response.data;
+
+      if (token) {
+        localStorage.setItem("token", token);
+        updateUser(user);
+        navigate("/dashboard");
       }
-
-      if(!password){
-        setError("Please Enter the Password");
-        return; 
+    } catch (error) {
+      if (error.response && error.response.data.message) {
+        setError(error.response.data.message);
+      } else {
+        setError("Something went wrong. Please try Again.");
       }
-
-
-      setError("")
-
-      // SignUP APICall
-
-
+    }
   };
 
   return (
@@ -89,15 +120,10 @@ const SignUp = () => {
 
           <p className="text-[13px] text-slate-800 mt-3">
             Already have an Account?{" "}
-            <Link
-              className="font-medium text-purple-500 underline"
-              to="/login"
-            >
+            <Link className="font-medium text-purple-500 underline" to="/login">
               Login
             </Link>
           </p>
-
-
         </form>
       </div>
     </AuthLayout>

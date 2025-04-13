@@ -11,7 +11,8 @@ const axiosInstance = axios.create({
   },
 });
 
-// Request Intercepter
+// Request Intercepter same as Postman we have to do manually 
+// login --> then give Token in the Variables --> then work.
 axiosInstance.interceptors.request.use(
   (config) => {
     const accessToken = localStorage.getItem("token");
