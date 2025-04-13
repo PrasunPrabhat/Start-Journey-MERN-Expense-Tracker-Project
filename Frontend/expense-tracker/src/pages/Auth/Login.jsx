@@ -13,6 +13,7 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  // Handle Login Form Submit
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -29,6 +30,7 @@ const Login = () => {
     setError("");
 
     // Login API call
+    
   };
   return (
     <AuthLayout>
