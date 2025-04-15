@@ -34,7 +34,7 @@ const AddIncomeForm = ({onAddIncome}) => {
             value={income.amount}
             onChange={({target}) => handleChange("amount", target.value)}
             label="Amount"
-            placeholder="Freelance, Salary, etc"
+            placeholder="Amount..."
             type="number"
         />
 
@@ -42,7 +42,7 @@ const AddIncomeForm = ({onAddIncome}) => {
             value={income.date}
             onChange={({target}) => handleChange("date", target.value)}
             label="Date"
-            placeholder="Freelance, Salary, etc"
+            placeholder="Date..."
             type="date"
         />
 

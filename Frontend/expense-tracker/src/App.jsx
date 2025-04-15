@@ -15,6 +15,7 @@ import {Toaster} from "react-hot-toast"
 
 const App = () => {
   return (
+    
     <UserProvider>
       <div>
         {/* Creating the Pages */}
