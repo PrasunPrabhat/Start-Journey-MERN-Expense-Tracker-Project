@@ -1,4 +1,4 @@
-export const BASE_URL = import.meta.env.VITE_BACKEND_URL;;
+export const BASE_URL = "https://start-journey-mern-expense-tracker.onrender.com";
 
 // utils/apiPaths.js
 export const API_PATHS = {
