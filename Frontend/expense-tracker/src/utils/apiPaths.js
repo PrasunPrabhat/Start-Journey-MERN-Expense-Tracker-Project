@@ -1,4 +1,4 @@
-export const BASE_URL = "https://start-journey-mern-expense-tracker.onrender.com";
+export const BASE_URL = process.env.REACT_APP_API_URL;
 
 // utils/apiPaths.js
 export const API_PATHS = {
