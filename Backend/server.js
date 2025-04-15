@@ -13,7 +13,7 @@ const app = express();
 // MiddelWare to handle
 app.use(
   cors({
-    origin:"https://start-journey-mern-expense-tracker-project.vercel.app/",
+    origin: process.env.CLIENT_URL || "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
